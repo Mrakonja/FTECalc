@@ -8,57 +8,23 @@ import './css/ftesetup.css';
 // var sectionStyle = {     display: 'flex',     width: '100%',     height: '100%',
 // flexDirection:'column',     justifyContent: 'space-between',     alignContent: 'space-between',
 //   };
-var upStyle = {
-  display: 'flex',
-  height: '85%',
-  width: '100%'
-};
 
-var downStyle = {
-  display: 'flex',
-  height: '15%',
-  justifyContent: 'flex-end',
-  width: '100%'
-};
-
-var rightStyle = {
-    display: 'flex',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    width: '50%',
-    color: 'white',
-    fontWeight: 'bold',
-    fontFamily: 'sans-serif',
-  };
-  
-  var leftStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    width: '50%',
-    color: 'white',
-    fontWeight: 'bold',
-    fontFamily: 'sans-serif',
-  };
 
 function FteSetup( props ) {
    const [ld, setLD] = useState('0');
    const [hd, setHD] = useState('0');
    const [FTE, setFTE] = useState('0');
    const ldchange = (value) =>{
-       setLD(value);
-       let newFte = (260-parseInt(hd)-parseInt(ld))*8;
-       console.log('this is ld ' + ld);
-       console.log('this is hd ' + hd);
-       console.log(newFte);
-       setFTE(newFte);
+    console.log('this is ld value ' + value.target.value);
+    let newFte = (260-parseInt(value.target.value)-parseInt(value.target.value))*8;
+    console.log(newFte);
+    setFTE(newFte);
    };
 
    const hdchange = (value) =>{
-    setHD(parseInt(value));
-    let newFte = (260-parseInt(hd)-parseInt(ld))*8;
-    console.log('this is ld ' + ld);
-    console.log('this is hd ' + hd);
+    console.log('this is hd value ' + value.target.value);
+    setHD(value);
+    let newFte = (260-parseInt(value.target.value)-parseInt(value.target.value))*8;
     console.log(newFte);
     setFTE(newFte);
     };
@@ -113,5 +79,41 @@ function FteSetup( props ) {
     </div>
   )
 }
+
+
+
+var upStyle = {
+  display: 'flex',
+  height: '85%',
+  width: '100%'
+};
+
+var downStyle = {
+  display: 'flex',
+  height: '15%',
+  justifyContent: 'flex-end',
+  width: '100%'
+};
+
+var rightStyle = {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    width: '50%',
+    color: 'white',
+    fontWeight: 'bold',
+    fontFamily: 'sans-serif',
+  };
+  
+  var leftStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    width: '50%',
+    color: 'white',
+    fontWeight: 'bold',
+    fontFamily: 'sans-serif',
+  };
+
 
 export default FteSetup;
