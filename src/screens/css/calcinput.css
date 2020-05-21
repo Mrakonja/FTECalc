@@ -1,0 +1,21 @@
+label{
+    display: flex;
+    flex-direction: row;
+    height:30%;
+    width: 100%;
+    margin-right: 5%;
+    align-items: center;
+    justify-content: center;
+}
+input {
+    width: 30%;
+    height: 20%;
+    margin-left: 2%;
+    background-color:#4493cb ;
+}
+
+div.select {
+    width: 30%;
+    height: 20%;
+    margin-left: 2%;
+}
