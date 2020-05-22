@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import ButtonComp from './componenets/button';
+import Calculation from './componenets/calculation';
 import HeaderComp from './componenets/headercomp';
 import './css/fteCalc.css';
 
@@ -51,14 +52,17 @@ function FteCalculator(props) {
     { value: 'StaffTranning', label: 'Staff Tranning' },
     { value: 'MiRequests', label: 'MI Requests' },
   ]
+
   const options2 = [
     { value: 'FieldActivities', label: 'Field Activities' },
     { value: 'MedicalMonitoring', label: 'Medical Monitoring' },
   ]
+
   const options3 = [
     { value: 'MAPs', label: 'MAPs' },
     { value: 'TestingActivities', label: 'Testing Activities' },
   ]
+
   const options4 = [
     { value: 'Meetings', label: 'Meetings' },
     { value: 'Admin Work', label: 'Admin Work' },
@@ -67,24 +71,27 @@ function FteCalculator(props) {
 
   const handleChange = (selectedOptions) => {
     setOption({ selectedOptions });
-    console.log(option)
+    console.log(option);
   }
+
   return (
     <div className="intro">
+
       <div className='mainBox'>
         <HeaderComp title='FTE CALCULATOR' />
         <div className='section' style={sectionStyle}>
           <div className='left'>
               <div className='up' style={up}>
-                <div style={selectHeader}>
-                  <Select styles={customStyles} options={options1} onChange={handleChange}/>
-                  <Select styles={customStyles} options={options2} onChange={handleChange}/>
-                  <Select styles={customStyles} options={options3} onChange={handleChange}/>
-                  <Select styles={customStyles} options={options4} onChange={handleChange}/>
-               </div>
-               <div className='acvityBox' style={activityBox}>
-                      <p> Select activity.....</p>
-                             </div>
+                  <div style={selectHeader}>
+                    <Select styles={customStyles} options={options1} onChange={handleChange}/>
+                    <Select styles={customStyles} options={options2} onChange={handleChange}/>
+                    <Select styles={customStyles} options={options3} onChange={handleChange}/>
+                    <Select styles={customStyles} options={options4} onChange={handleChange}/>
+                </div>
+                <div className='acvityBox' style={activityBox}>
+                        <p> Select activity.....</p>
+                        <Calculation />
+                </div>
               </div>
               <div className='down' style={down}>
                 <table>
@@ -105,6 +112,7 @@ function FteCalculator(props) {
                 </table>
               </div>
 
+
           </div>
           <div className='right'>
             <div className='up'>
@@ -119,9 +127,7 @@ function FteCalculator(props) {
     </div>
 
     </div>
-
-
-  )
+    )
 }
 
 
