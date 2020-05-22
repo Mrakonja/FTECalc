@@ -1,8 +1,19 @@
+table {
+    width: 100%;
+}
+th, tr {
+    width: 100%;
+}
 td {
+    width: 25%;
     color: black;
     border: 1px solid black
 }
 
 .headr >div {
     width: 25%,
+}
+
+.left {
+    width:70%
 }

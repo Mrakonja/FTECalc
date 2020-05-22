@@ -17,7 +17,7 @@ function FteSetup( props ) {
    const ldchange = (value) =>{
     console.log('this is ld value ' + value.target.value);
     let newFte = (260-parseInt(value.target.value)-parseInt(value.target.value))*8;
-    console.log(newFte);
+    //console.log(newFte);
     setFTE(newFte);
    };
 
@@ -25,7 +25,7 @@ function FteSetup( props ) {
     console.log('this is hd value ' + value.target.value);
     setHD(value);
     let newFte = (260-parseInt(value.target.value)-parseInt(value.target.value))*8;
-    console.log(newFte);
+    //console.log(newFte);
     setFTE(newFte);
     };
     
