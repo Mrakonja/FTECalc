@@ -9,12 +9,14 @@ function Calculation( props ) {
     const [hours, changeHours] = useState('0')
     const [numOfAct, changeNumOfAct] = useState('0')
     const [result, setResult]=useState('0')
+    const [fte, setFte]=useState('0')
 
     const CalculateResult = () =>{
         console.log('totalh ', props.totalHours)
         console.log('numofActs ', numOfAct)
         console.log('hours ', hours )
         setResult(numOfAct*hours)
+        setFte(2048/(numOfAct*hours))
     }
 
     const handleHours = (input) =>{
@@ -41,6 +43,7 @@ function Calculation( props ) {
         </div>
         <div className='resDiv'> 
                 <p>This activity takes : {result} hours</p>
+                <p>This activity takes : {fte} of FTE</p>
                 
         </div>
     </div>    
