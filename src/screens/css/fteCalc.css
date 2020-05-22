@@ -17,3 +17,9 @@ td {
 .left {
     width:70%
 }
+
+.up {
+    display:Flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

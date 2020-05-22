@@ -89,8 +89,8 @@ function FteCalculator(props) {
                     <Select styles={customStyles} options={options4} onChange={handleChange}/>
                 </div>
                 <div className='acvityBox' style={activityBox}>
-                        <p> Select activity.....</p>
-                        <Calculation />
+                        <p>  </p>
+                        <Calculation totalHours='2088'/>
                 </div>
               </div>
               <div className='down' style={down}>
@@ -166,7 +166,10 @@ margin: '5px'
 let up = {
   width:'100%',
   height: 'auto',
-  margin: '5px'
+  margin: '5px',
+  display:'Flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
   }
 
 
