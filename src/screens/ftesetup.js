@@ -4,31 +4,28 @@ import FooterrComp from './componenets/footercomp';
 import HeaderComp from './componenets/headercomp';
 import './css/calcinput.css';
 import './css/ftesetup.css';
+import {useSelector, useDispatch} from 'react-redux';
+import { setFte } from '../redux/actions';
 
 // var sectionStyle = {     display: 'flex',     width: '100%',     height: '100%',
 // flexDirection:'column',     justifyContent: 'space-between',     alignContent: 'space-between',
 //   };
+let oldLD, oldHD;
+
+function FteSetup(props) {
+  const currFte = useSelector(state=>state.fte)
+  const dispatch = useDispatch()
 
 
-function FteSetup( props ) {
-   const [ld, setLD] = useState('0');
-   const [hd, setHD] = useState('0');
-   const [FTE, setFTE] = useState('0');
-   const ldchange = (value) =>{
-    console.log('this is ld value ' + value.target.value);
-    let newFte = (260-parseInt(value.target.value)-parseInt(value.target.value))*8;
-    //console.log(newFte);
-    setFTE(newFte);
-   };
+  const ldchange = (input) =>{
+    oldLD =input.target.value;
+  }
 
-   const hdchange = (value) =>{
-    console.log('this is hd value ' + value.target.value);
-    setHD(value);
-    let newFte = (260-parseInt(value.target.value)-parseInt(value.target.value))*8;
-    //console.log(newFte);
-    setFTE(newFte);
-    };
-    
+  const hdchange = (input) =>{
+    oldHD= input.target.value;
+  }
+
+
   return (
     
     <div className="intro">
@@ -40,6 +37,7 @@ function FteSetup( props ) {
               <div>
               <p>Help US DETERMINE YOUR CURRENT FTE</p>
               <p>BY ADDING YOUR ANNUAL LEAVE AND PUBLIC HOLIDAYS</p>
+            <h1> {props.store} </h1>
               </div>
             </div>
             <div className='right' style={rightStyle}>
@@ -63,12 +61,13 @@ function FteSetup( props ) {
 
                 <tr>
                   <td>FTE</td>
-                  <td>{FTE}</td>
+                  <td>{currFte}</td>
                 </tr>
               </table>
             </div>
           </div>
           <div className='Down' style={downStyle}>
+            <button style={buttonStyle} onClick={()=>dispatch(setFte(currFte-(oldHD*8)-(oldLD*8)))}>SUBMIT </button>
             <ButtonComp nextp='/' label='BACK' />
             <ButtonComp nextp='/ftechoose' label='CONTINUE' />
           </div>
@@ -113,6 +112,17 @@ var rightStyle = {
     color: 'white',
     fontWeight: 'bold',
     fontFamily: 'sans-serif',
+  };
+
+
+  var buttonStyle = {
+    margin: '10px 10px 10px 0',
+    backgroundColor: '#203165',
+    padding: '4px 4px 4px 4',
+    width: '180px',
+    height: '45px',
+    color: 'white',
+    fontSize: '24px',
   };
 
 

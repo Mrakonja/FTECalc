@@ -4,15 +4,20 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './App';
 import './index.css';
-import store from './redux/store';
+import {createStore} from 'redux';
+import rootReducer from './redux/reducers'
 import * as serviceWorker from './serviceWorker';
 
+
+
+let store = createStore(rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() )
 
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
-    </Provider>,
+  </Provider>,
   document.getElementById('root')
 );
 
