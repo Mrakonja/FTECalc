@@ -13,10 +13,6 @@ const customStyles = {
     width: '100%',
     color: state.isSelected ? 'white' : 'black',
   }),
-  // control: () => ({
-  //   // none of react-select's styles are passed to <Control />
-  //   width: 200,
-  // }),
   container: (provided, state) => ({
     ...provided,
     width: '25%',
@@ -50,7 +46,7 @@ function FteCalculator(props) {
 
   const options1 = [
     { value: 'StaffTranning', label: 'Staff Tranning' },
-    { value: 'MiRequests', label: 'MI Requests' },
+    { value: 'Congress', label: 'Congress(international or local)' },
   ]
 
   const options2 = [
@@ -83,10 +79,30 @@ function FteCalculator(props) {
           <div className='left'>
               <div className='up' style={up}>
                   <div style={selectHeader}>
-                    <Select styles={customStyles} options={options1} onChange={handleChange}/>
-                    <Select styles={customStyles} options={options2} onChange={handleChange}/>
-                    <Select styles={customStyles} options={options3} onChange={handleChange}/>
-                    <Select styles={customStyles} options={options4} onChange={handleChange}/>
+                    <div style={sectionStyle}>
+                      <select name="cars" id="cars">
+                        <option value="Congres">Congress (international or local )</option>
+                        <option value="StaffTranning">Staff Tranning</option>
+                      </select>
+                    </div>
+                    <div style={sectionStyle}>
+                      <select name="cars" id="cars">
+                        <option value="MedicalMonitoring">Medical Monitoring</option>
+                        <option value="ProtocolWriting">Protocol Writing</option>
+                      </select>
+                    </div>
+                    <div style={sectionStyle}>
+                      <select name="cars" id="cars">
+                        <option value="maps">MAPs</option>
+                        <option value="AdvisoryBoards">Advisory Boards</option>
+                      </select>
+                    </div>
+                    <div style={sectionStyle}>
+                      <select name="cars" id="cars">
+                        <option value="AdminWork">AdminWork</option>
+                        <option value="AnualMedicalPlanning">Anual Medical Planning</option>
+                      </select>
+                    </div>
                 </div>
                 <div className='acvityBox' style={activityBox}>
                         <p>  </p>

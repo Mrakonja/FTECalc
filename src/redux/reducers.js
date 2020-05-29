@@ -10,6 +10,23 @@ const fteReducer = (state=fteState, action) => {
     }
 }
 
+const aldReducer = (state=0, action) => {
+    switch(action.type){
+        case 'ADD_ALD':
+            return state = action.ald
+        default:
+            return state
+    }
+}
+const phReducer = (state=0, action) => {
+    switch(action.type){
+        case 'ADD_PH':
+            return state = action.ph
+        default:
+            return state
+    }
+}
+
 const activityCounter = (state=[], action) => {
     switch(action.type){
         case 'ADD_ACTIVITY':
@@ -24,6 +41,9 @@ const activityCounter = (state=[], action) => {
 export default combineReducers({
     fte: fteReducer,       
     activityCounter,
+    ald: aldReducer,
+    ph: phReducer
+
 })
 
 

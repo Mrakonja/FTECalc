@@ -5,26 +5,36 @@ import HeaderComp from './componenets/headercomp';
 import './css/calcinput.css';
 import './css/ftesetup.css';
 import {useSelector, useDispatch} from 'react-redux';
-import { setFte } from '../redux/actions';
+import { setFte, setAld, setPh } from '../redux/actions';
 
 // var sectionStyle = {     display: 'flex',     width: '100%',     height: '100%',
 // flexDirection:'column',     justifyContent: 'space-between',     alignContent: 'space-between',
 //   };
 let oldLD, oldHD;
 
+
 function FteSetup(props) {
   const currFte = useSelector(state=>state.fte)
+  const currPh = useSelector(state=>state.ph)
+  const currAld = useSelector(state=>state.ald)
+
   const dispatch = useDispatch()
 
-
   const ldchange = (input) =>{
-    oldLD =input.target.value;
+    dispatch(setAld(input.target.value))
   }
 
   const hdchange = (input) =>{
-    oldHD= input.target.value;
+    dispatch(setPh(input.target.value))
   }
 
+  const getFte = () =>{
+    dispatch(setFte(currFte-(currPh*8)-(currAld*8)))
+  }
+
+  const resetFTE =() => {
+    dispatch(setFte(260*8))
+  }
 
   return (
     
@@ -67,7 +77,8 @@ function FteSetup(props) {
             </div>
           </div>
           <div className='Down' style={downStyle}>
-            <button style={buttonStyle} onClick={()=>dispatch(setFte(currFte-(oldHD*8)-(oldLD*8)))}>SUBMIT </button>
+          <button style={buttonStyle} onClick={resetFTE}>RESET </button>
+            <button style={buttonStyle} onClick={getFte}>SUBMIT </button>
             <ButtonComp nextp='/' label='BACK' />
             <ButtonComp nextp='/ftechoose' label='CONTINUE' />
           </div>

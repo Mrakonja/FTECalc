@@ -4,3 +4,17 @@ export const setFte = (fte) => {
         fte
     }
 }
+export const setAld = (ald) => {
+    return {
+        type: 'ADD_ALD',
+        ald
+    }
+}
+
+export const setPh = (ph) => {
+    return {
+            type: 'ADD_PH',
+            ph
+        }
+}
+    
