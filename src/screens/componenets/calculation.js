@@ -12,11 +12,7 @@ function Calculation( props ) {
     const [fte, setFte]=useState('0')
 
     const CalculateResult = () =>{
-        console.log('totalh ', props.totalHours)
-        console.log('numofActs ', numOfAct)
-        console.log('hours ', hours )
-        setResult(numOfAct*hours)
-        setFte(2048/(numOfAct*hours))
+        setFte((numOfAct*hours)/parseInt(props.totalHours))
     }
 
     const handleHours = (input) =>{

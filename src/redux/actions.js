@@ -17,4 +17,11 @@ export const setPh = (ph) => {
             ph
         }
 }
+
+export const AddActivity = (activity) => {
+    return {
+        type: 'ADD_ACTIVITY',
+        activity
+    }
+}
     
