@@ -59,7 +59,7 @@ function FteCalculator(props) {
   ];
 
   const CalculateResult = () =>{
-      setFte(Math.round((parseInt(numOfAct)*parseInt(hours))/parseInt(currFte) * 100) / 100);
+      setFte(Math.round((parseInt(numOfAct)*parseInt(hours))/parseInt(currFte) * 100) / 10000);
       setTotalHours(parseInt(numOfAct)*parseInt(hours))
   }
 
