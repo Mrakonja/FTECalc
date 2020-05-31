@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import ButtonComp from './componenets/button';
-import Graph from './componenets/graph';
-import HeaderComp from './componenets/headercomp';
 import { AddActivity } from '../redux/actions';
 
 import './css/fteCalc.css';
@@ -71,11 +69,11 @@ function FteCalculator(props) {
     <div className="intro">
       <div className='mainBox'>
         <div className='section' style={sectionStyle}>
-          <div className='left'>
+          <div style={left}>
             <div className="pageTitle">
               <h3>FTE CALCULATORS</h3>
             </div>
-            { items.map((item) => <button onClick={handleClick} key={item.value} value={item.value} >{item.label}</button>
+            { items.map((item) => <button onClick={handleClick} key={item.value} value={item.value} style={btnStl}>{item.label}</button>
             )}
 
           </div>
@@ -191,6 +189,28 @@ let up = {
 
 }
 
+let left = {
+  display: 'flex',
+  flexDirection: 'column',
+  fontSize: '18px',
+  alignItems: 'flex-start',
+  width: '100vh',
+  backgroundColor: '#399de5',
+  width: '15vw',
+  color: 'white',
+
+}
+
+let btnStl = {
+  backgroundColor: '#399de5',
+  color: 'white',
+  borderBottom: '1px solid lightgray',
+  height:'5%',
+  width: '14vw',
+  padding: '1%',
+  textAlign: 'left',
+  margin: '1px 4px 0px 4px',
+}
 
 
 export default FteCalculator;
