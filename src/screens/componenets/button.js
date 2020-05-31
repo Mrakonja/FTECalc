@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 var buttonStyle = {
     margin: '10px 10px 10px 0',
-    backgroundColor: '#32cdfb',
+    backgroundColor: '#399de5',
     padding: '4px 4px 4px 4',
     width: '180px',
     height: '45px',

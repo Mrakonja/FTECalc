@@ -165,7 +165,7 @@ let selectHeader = {
 }
 
 let activityBox = {
-  width:'50%',
+  width:'48vw',
   height:'300px',
   paddingLeft: '1vw',
 }
