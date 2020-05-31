@@ -8,25 +8,6 @@ justify-content: stretch;
 align-items: stretch;
 }
 
-table {
-    color:white;
-    width: 30vw;
-    border: 1px solid #596063;
-    }
-
-td {
-    border: 1px solid#596063;
-    height: 50px;
-    text-align: center;
-    padding: 3px;
-    background-color: #3ab7dd;
-    color:white;
-}
-
-td >input {
-    height: 45px;
-    background-color:#596063;
-}
 
 .Down {
     display:flex;
@@ -34,12 +15,12 @@ td >input {
     justify-content: flex-end;
 }
 
-.up  p {
+/* .up  p {
     font-size: 32px;
     font-weight: bolder;
     text-align: center;
     height: 10vh;
-}
+} */
 .buttons {
     display: flex;
     flex-direction: row;

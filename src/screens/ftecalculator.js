@@ -4,8 +4,10 @@ import ButtonComp from './componenets/button';
 import Graph from './componenets/graph';
 import HeaderComp from './componenets/headercomp';
 import { AddActivity } from '../redux/actions';
+
 import './css/fteCalc.css';
-import './componenets/css/calculations.css';
+
+// import './componenets/css/calculations.css';
 import { faVihara } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -68,15 +70,20 @@ function FteCalculator(props) {
   return (
     <div className="intro">
       <div className='mainBox'>
-        <HeaderComp title='FTE CALCULATOR' />
         <div className='section' style={sectionStyle}>
           <div className='left'>
+            <div className="pageTitle">
+              <h3>FTE CALCULATORS</h3>
+            </div>
             { items.map((item) => <button onClick={handleClick} key={item.value} value={item.value} >{item.label}</button>
             )}
 
           </div>
           
           <div className='center'>
+            <div className="header">
+            <img src={require('./componenets/assets/logo.png')} alt='logo' height='70%'/>
+            </div>
             <div className='up' style={up}>
               <div className='acvityBox' style={activityBox}>
                   { option!=='' &&
@@ -84,11 +91,13 @@ function FteCalculator(props) {
                         <div className='mainDiv'>
                           {items.filter((item) => item.value === option).map( (item) => <div className="description"><p >{item.description}</p></div>)} 
                           <div className='calcDiv'> 
-                            <div> This individual activity takes  <input type="text" onChange={handleHours} /> I have <input type="text" onChange={handleNumOfAct} />This Year </div>
-                            <div className='buttonDiv'>
-                              <button onClick={CalculateResult}>CALCULATE</button>
-                              <button onClick={saveResults}>SAVE</button>
-                            </div>
+                            <div> 
+                              <p>This individual activity takes  <input type="text" onChange={handleHours} /> </p> 
+                              <p>I have <input type="text" onChange={handleNumOfAct} />This Year </p> </div>
+                              <div className='buttonDiv'>
+                                <button onClick={CalculateResult}>CALCULATE</button>
+                                <button onClick={saveResults}>SAVE</button>
+                              </div>
                           </div>
                           <div className='resDiv'> 
                                   <p>This activity takes : {totalHours} hours</p>
@@ -96,47 +105,49 @@ function FteCalculator(props) {
                           </div>
                         </div> 
                     }
-               </div>
-            </div>
-            <div className='down' style={down}>
+
+  
+              </div>
               <table>
                 <tr>
-                  <td>
+                  <td style={tHead}>
                       ACTIITY  
-                  </td>
-                  <td>
+                  </td >
+                  <td style={tHead}>
                       TOTALWORKLOAD
                   </td>
-                  <td>
+                  <td style={tHead}>
                     NUMBER OF ACTIVITES
                   </td>
-                  <td>
+                  <td style={tHead}>
                       FTE
                   </td>
                 </tr>
                 {activityCounter.filter((item) => item !== undefined).map((item)=> <tr><td>{item.name}</td><td>{item.workload}</td><td>{item.num}</td><td>{item.fte}</td></tr>)}
-              </table>
+              </table>        
             </div>
-        </div>
+            <div className='down' style={down}>
 
-        <div className='right'>
-            <div className='up'>
-             {/* <Graph activities={activityCounter}/> */}
-            </div>
-            <div className='down'>
+         
+            <div className="bottom">
               <ButtonComp nextp='/' label='SAVE' />
               <ButtonComp nextp='/ftecalculator' label='BACK' />
             </div>
         </div>
         </div>
-    </div>
 
+        </div>
+        </div>
     </div>
     )
 }
 
 
-
+var tHead ={
+  backgroundColor: 'white',
+  borderBottom: '1px solid #399de5',
+  color: 'black',
+}
 var sectionStyle = {
   alignContent: 'space-around',
   display: 'flex',
@@ -144,39 +155,40 @@ var sectionStyle = {
   height: '100%',
   justifyContent: 'space-around',
   width: '100%',
-  borderTop: '5px white solid',
 };
 
 let selectHeader = {
-display: 'flex',
-flexDirection: 'row',
-justifyContent: 'stretch',
-alignItems: 'stretch'
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'stretch',
+  alignItems: 'stretch'
 }
 
 let activityBox = {
-width:'100%',
-height:'300px',
-backgroundColor:'#596063',
-color: 'white',
-padding: '0.1vw',
+  width:'50%',
+  height:'300px',
+  paddingLeft: '1vw',
 }
 
 let down = {
-width:'100%',
-height: 'auto',
-backgroundColor:'#596063',
-margin: '5px'
+  display: 'flex',
+  justifyContent: 'flex-end',
+  alignContent: 'flex-end',
+  position: 'absolute',
+  bottom: '0',
+  height: 'auto',
+  width: '80vw',
+
 }
 
 let up = {
   width:'100%',
   height: 'auto',
-  margin: '5px',
-  display:'Flex',
+  display:'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  }
+
+}
 
 
 
