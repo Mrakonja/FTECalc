@@ -1,7 +1,5 @@
 import React from 'react';
-import ButtonComp from './componenets/button';
-import FooterrComp from './componenets/footercomp';
-import HeaderComp from './componenets/headercomp';
+import { Link } from 'react-router-dom';
 import './css/intro.css';
 
 var sectionStyle = {
@@ -25,22 +23,65 @@ var downStyle = {
     justifyContent: 'flex-end'
 };
 
+
+var buttonStyle = {
+    margin: '10px 10px 10px 0',
+    backgroundColor: 'white',
+    padding: '4px 4px 4px 4',
+    width: '180px',
+    height: '45px',
+    color: '#399de5',
+    fontSize: '24px',
+    border: '2px double gray',
+
+  };
+
+var downSec ={
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#399de5',
+    height: '50vh',
+}
+
+var upSec = {
+    display: 'flex',
+    backgroundColor: 'white',
+    height: '50vh',
+    justifyContent: 'center',
+    alignItems: 'center',
+}
+
+var imgStyle = {
+    width: '50vw',
+    height: '13vw',
+}
+
 function Intro(props) { 
 
    
         return (
         <div className="intro">
             <div className='mainBox'>
-                <HeaderComp/>             
+             
                 <div className='section' style={sectionStyle}>
-                    <div className='up' style={upStyle}>
+                    <div style={upSec}>
+                 
+                            <img src={require('./componenets/assets/logo.png')} alt='logo' style={imgStyle}/>
+                   
                     </div>
-                    <div className='Down' style={downStyle}>
-                    <ButtonComp nextp='/ftesetup' label='START' />
+                    <div style={downSec}>
+                        <Link to='/ftesetup' >
+                            <button
+                            className="btn btn-default"
+                            style={buttonStyle} >
+                                CONTINUE
+                            </button>
+                        </Link>
                     </div>
+                 
                 </div>
-                <FooterrComp />
-        
+                 
             </div>
         </div>
         )

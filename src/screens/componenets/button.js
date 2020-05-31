@@ -9,6 +9,7 @@ var buttonStyle = {
     height: '45px',
     color: 'white',
     fontSize: '24px',
+    textAlign: 'center'
   };
 
 function ButtonComp(props) {

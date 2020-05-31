@@ -92,15 +92,16 @@ function FteCalculator(props) {
                           {items.filter((item) => item.value === option).map( (item) => <div className="description"><p >{item.description}</p></div>)} 
                           <div className='calcDiv'> 
                             <div> 
-                              <p>This individual activity takes  <input type="text" onChange={handleHours} /> </p> 
-                              <p>I have <input type="text" onChange={handleNumOfAct} />This Year </p> </div>
+                              <p>This individual activity takes  <input type="text" onChange={handleHours} /> hours </p> 
+                              <p>I have <input type="text" onChange={handleNumOfAct} /> activities this year </p> </div>
                               <div className='buttonDiv'>
                                 <button onClick={CalculateResult}>CALCULATE</button>
                                 <button onClick={saveResults}>SAVE</button>
                               </div>
                           </div>
                           <div className='resDiv'> 
-                                  <p>This activity takes : {totalHours} hours</p>
+                                  <p>This activity takes : {totalHours} hours </p>
+                                  <br></br>
                                   <p>This activity takes : {fte} of FTE</p>
                           </div>
                         </div> 
@@ -131,7 +132,7 @@ function FteCalculator(props) {
          
             <div className="bottom">
               <ButtonComp nextp='/' label='SAVE' />
-              <ButtonComp nextp='/ftecalculator' label='BACK' />
+              <ButtonComp nextp='/ftecalculatorinput' label='BACK' />
             </div>
         </div>
         </div>

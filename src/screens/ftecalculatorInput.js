@@ -24,6 +24,24 @@ var sectionStyle = {
     backgroundColor: 'white',
   };
 
+  var imgStyle = {
+    width: '30vw',
+    height: '7vw',
+}
+
+var mainStyle = {
+  display: 'flex',
+  flexDirection:'row',
+}
+
+var leftStyle = {
+  backgroundColor: 'white',
+}
+var rightStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems:'center',
+}
 
 
 function FteCalculatorInput(props ) {
@@ -43,30 +61,36 @@ function FteCalculatorInput(props ) {
   ]
    return (
     <div className="intro">
-      <div className='mainBox'>
-        <HeaderComp title='FTE CALCULATOR' />
-        <div className='section' style={sectionStyle}>
-          <div className='select'>
-      
-            <Select options={options}/>
-    
-          </div>
-                 <label>
-            <p>FULL NAME:</p>
-            <input type="text" onChange={handleName} />
-          </label>
-          <label>
-           <p>COUNTRY:</p>
-          <input type="text" onChange={handleState} />
-        </label>
-        </div>
-        <div  style={BotsectionStyle}>
+      <div className='mainBox' style={mainStyle}>
+        <div className='left' style={leftStyle}>
+        <img src={require('./componenets/assets/logo.png')} alt='logo' style={imgStyle}/>
           <ButtonComp nextp='/ftechoose' label='BACK' />
           <ButtonComp nextp='/ftecalculator' label='CONTINUE' />
         </div>
+        <div  className='right' style={rightStyle}>
 
+        <div className='select'>      
+          <select>
+          <option value='MedicalScienceLiason'>MedicalScienceLiason</option>
+          <option value='MedicalManagerStrategicProduct'>MedicalManagerStrategicProduct</option>
+          <option value='MedicalManagerEstablishedProduct'>MedicalManagerStrategicProduct</option>
+          </select>
+        </div>
+        <div className='select'>    
+          <label>
+            <p>FULL NAME:</p>
+            <input type="text" onChange={handleName} />
+          </label>
+        </div>
+        <div className='select'>   
+          <label>
+            <p>COUNTRY:</p>
+            <input type="text" onChange={handleState} />
+          </label>
+          </div>
       </div>
     </div>
+  </div>
 
   )
 }

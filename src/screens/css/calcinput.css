@@ -1,22 +1,38 @@
 label{
     display: flex;
     flex-direction: row;
-    height:30%;
+    height: 5vh;
     width: 100%;
     margin-right: 5%;
     align-items: center;
     justify-content: center;
+    margin: 3vh;
 }
+
 input {
     width: 30%;
-    height: 20%;
+    height: 5vh;
     margin-left: 2%;
-    background-color:#596063 ;
+    border: 5px double  #d1d1d1;
+    margin: 3vh;
 }
 
 div.select {
-    width: 30%;
-    height: 20%;
-    margin-left: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 49vw;
+    height: 5vh;
+    margin: 3vh;
 }
 
+.select p {
+    width: 10vw;
+    color: white;
+    font-weight: bolder;
+}
+
+
+.left {
+    background-color: white !important;
+}

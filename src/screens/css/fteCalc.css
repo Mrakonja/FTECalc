@@ -11,6 +11,14 @@ button:focus, button:active   { border:none; }
     align-content: center;
     margin-top: 3vh;
 }
+
+.resDiv {
+    flex-direction: column;
+}
+
+.resDiv p {
+    font-weight: bolder;
+}
 .calcDiv {
     display: flex;
     width: 65vw;
@@ -42,11 +50,19 @@ button:focus, button:active   { border:none; }
     font-size: 18px;
     align-items: flex-start;
     width: 100vh;
-    background-color: #399de5;
+    background-color: #399de5 !important;
     width: 15vw;
     color: white;
 
 
+}
+
+input {
+    width: 30%;
+    height: 2vh !important;
+    margin-left: 2%;
+    border: 5px double  #d1d1d1;
+    margin: 0.5vh !important;
 }
 
 .pageTitle {

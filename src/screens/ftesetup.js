@@ -35,17 +35,19 @@ function FteSetup(props) {
   const resetFTE =() => {
     dispatch(setFte(260*8))
   }
-
+  var imgStyle = {
+    width: '30vw',
+    height: '7vw',
+}
   return (
     
     <div className="intro">
       <div className='mainBox'>
-        <HeaderComp title='FTE SETUP' />
         <div className='section'>
-          <div className='up' style={upStyle}>
+          <div className='right' >
               <div>
-              <p>HELP US DETERMINE YOUR CURRENT FTE</p>
-              <p>BY ADDING YOUR ANNUAL LEAVE AND PUBLIC HOLIDAYS</p>
+              <h1>HELP US DETERMINE YOUR CURRENT FTE</h1>
+              <h1>BY ADDING YOUR ANNUAL LEAVE AND PUBLIC HOLIDAYS</h1>
               </div>
      
 
@@ -62,7 +64,7 @@ function FteSetup(props) {
                 </tr>
 
                 <tr>
-                  <td>PUBLIC HOLYDAYS</td>
+                  <td>PUBLIC HOLIDAYS</td>
                   <td><input type="text" onChange={hdchange} /></td>
                 </tr>
 
@@ -72,15 +74,17 @@ function FteSetup(props) {
                 </tr>
               </table>
               <div className='buttons'>
-              <button style={buttonStyle} onClick={resetFTE}>RESET </button>
+                    <button style={buttonStyle} onClick={resetFTE}>RESET </button>
                     <button style={buttonStyle} onClick={getFte}>SUBMIT </button>
               </div>
           
           </div>
-          <div className='Down' style={downStyle}>
-  
+          <div className='left'>
+             <img src={require('./componenets/assets/logo.png')} alt='logo' style={imgStyle}/>
+             <div style={buttonComponenet}>
             <ButtonComp nextp='/' label='BACK' />
             <ButtonComp nextp='/ftechoose' label='CONTINUE' />
+            </div>
           </div>
         </div>
       </div>
@@ -89,21 +93,24 @@ function FteSetup(props) {
 }
 
 
-
+var buttonComponenet ={
+  display: 'flex',
+  width: '50vw',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  textAlign: 'center'
+}
 var upStyle = {
   display: 'flex',
   height: '85%',
   width: '100%',
+  flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
 };
 
-var downStyle = {
-  display: 'flex',
-  
-  height: '15%',
-  width: '100%'
-};
+
 
 var rightStyle = {
     display: 'flex',
@@ -128,12 +135,13 @@ var rightStyle = {
 
   var buttonStyle = {
     margin: '10px 10px 10px 0',
-    backgroundColor: '#32cdfb',
+    backgroundColor: 'white',
     padding: '4px 4px 4px 4',
     width: '180px',
     height: '45px',
-    color: 'white',
+    color: 'black',
     fontSize: '24px',
+    border: '5px double #d1d1d1'
   };
 
 
