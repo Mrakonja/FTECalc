@@ -21,7 +21,7 @@ button:focus, button:active   { border:none; }
 }
 .calcDiv {
     display: flex;
-    width: 65vw;
+    width: 33vw;
     flex-direction: column;
 }
 .description {
@@ -43,6 +43,19 @@ button:focus, button:active   { border:none; }
 .center {
     width: 85vw;
 }
+
+.headerCalc {
+    display:flex;
+    justify-content: flex-end;
+    background-color: white;
+    width: 83vw;
+    height: 20%;
+    display: flex;
+    padding-top: 10px;
+    padding-right: 10px;
+    color: #0073bc;
+}
+
 
 .left {
     display:flex;
@@ -108,4 +121,11 @@ td{
 
 table {
     width: 48vw !important;
+}
+
+.leftCalc {
+    width: 48vw;
+}
+.rightCalc {
+    width: 40vw;
 }

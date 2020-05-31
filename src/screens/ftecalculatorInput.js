@@ -4,45 +4,6 @@ import ButtonComp from './componenets/button';
 import HeaderComp from './componenets/headercomp';
 import './css/calcinput.css';
 
-var sectionStyle = {
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    justifyContent: 'center',
-    width: '100%',
-    borderTop: '5px white solid',
-    fontFamily: 'sans-serif',
-    color: 'black',
-  };
-
-  var BotsectionStyle = {
-    display: 'flex',
-    width: '100%',
-    height: '15%',
-    justifyContent: 'flex-end',
-    backgroundColor: 'white',
-  };
-
-  var imgStyle = {
-    width: '30vw',
-    height: '7vw',
-}
-
-var mainStyle = {
-  display: 'flex',
-  flexDirection:'row',
-}
-
-var leftStyle = {
-  backgroundColor: 'white',
-}
-var rightStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems:'center',
-}
-
 
 function FteCalculatorInput(props ) {
   const [fullname, setName] = useState('')
@@ -94,5 +55,46 @@ function FteCalculatorInput(props ) {
 
   )
 }
+
+var sectionStyle = {
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+  justifyContent: 'center',
+  width: '100%',
+  borderTop: '5px white solid',
+  fontFamily: 'sans-serif',
+  color: 'black',
+};
+
+var BotsectionStyle = {
+  display: 'flex',
+  width: '100%',
+  height: '15%',
+  justifyContent: 'flex-end',
+  backgroundColor: 'white',
+};
+
+var imgStyle = {
+  width: '30vw',
+  height: '7vw',
+}
+
+var mainStyle = {
+display: 'flex',
+flexDirection:'row',
+}
+
+var leftStyle = {
+backgroundColor: 'white',
+}
+var rightStyle = {
+display: 'flex',
+justifyContent: 'center',
+alignItems:'center',
+}
+
+
 
 export default FteCalculatorInput;

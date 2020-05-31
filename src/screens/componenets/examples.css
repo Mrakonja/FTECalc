@@ -1,0 +1,75 @@
+.examples h1 {
+  font-size: 58px;
+}
+
+.examples .HBar{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  /*
+  border: 1px dashed rgba(255, 255, 255, 0.13);
+  */
+}
+
+.examples pre {
+  background: #222;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: none;
+  width: 70%
+}
+
+/* EXAMPLE 1 */
+
+
+.example1 .HBar .inside {
+  fill: white
+}
+
+.example1 .HBar .right {
+  fill: white
+}
+
+.example1 .HBar .left {
+  fill: white
+}
+
+.example1 rect {
+  fill: #018670
+}
+
+.example1 .HBar .axis {
+  stroke: #018670;
+}
+
+/* EXAMPLE 2 */
+
+.example2 .HBar .inside {
+  fill: white
+}
+
+.example2 .HBar .right {
+  fill: white
+}
+
+.example2 .HBar .axis {
+  stroke: #4D386C;
+}
+
+.example2 .HBar .focused {
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 1px;
+}
+
+/* EXAMPLE 3 */
+
+.example3 .HBar .inside {
+  fill: white
+}
+
+.example3 .HBar .right {
+  fill: white
+}
+
+.example3 .HBar .left {
+  fill: white
+}

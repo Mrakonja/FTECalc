@@ -2,18 +2,41 @@ import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import ButtonComp from './componenets/button';
 import { AddActivity } from '../redux/actions';
-
 import './css/fteCalc.css';
-
-// import './componenets/css/calculations.css';
 import { faVihara } from '@fortawesome/free-solid-svg-icons';
+import Chart from './componenets/graph'
+
+
+
 
 
 function FteCalculator(props) {
+  let activityCounter = [{name:'demo', value:1}]
   const dispatch = useDispatch()
 
   const [option, setOption] = useState('')
   const [activities, setActivity] = useState([])
+  const [st, setSt] = useState({
+    options: {
+      plotOptions: {
+        bar: {
+            horizontal: true,
+        }
+      },
+      chart: {
+      id: "basic-bar"
+      },
+      xaxis: {
+      categories: [1,2,3,4]
+      }
+    },
+    series: [
+      {
+      name: "series-1",
+      data:  [1,2,3,4]
+      }
+    ]
+    });
 
   const [hours, changeHours] = useState('0')
   const [numOfAct, changeNumOfAct] = useState('0')
@@ -22,23 +45,21 @@ function FteCalculator(props) {
   const [totalHours, setTotalHours]=useState('0')
 
   const currFte = useSelector(state=>state.fte)
-  const activityCounter = useSelector(state=>state.activityCounter)
+  activityCounter = useSelector(state=>state.activityCounter)
 
   const items = [
-    {value: 'Congress',label : 'Congress', description: 'Congresses, International or local Time spent to prepare and execute local and international congress activities, including symposia preparation, invitations,contracts,HCP selection criteria, attendance and preparation of post congress material feedback, summary of data..etc'},
-    { value: 'StaffTranning',       label : 'Staff Tranning', description: 'Staff Training Time spent in regular internal staff training, per activity including newcomers or regular scientific updates (e.g. after International congress) & including preparation of training material ' },
-    { value: "MedicalMonitoring",   label : 'Medica lMonitoring', description:  'Medical Monitoring Time spent for medical monitoring visits & activities, broken down to time spent per each '},
+    {value: 'Congresses',label : 'Congresses', description: 'Congresses, International or local Time spent to prepare and execute local and international congress activities, including symposia preparation, invitations,contracts,HCP selection criteria, attendance and preparation of post congress material feedback, summary of data..etc'},
+    { value: 'StaffTraining ',       label : 'Staff Training', description: 'Staff Training Time spent in regular internal staff training, per activity including newcomers or regular scientific updates (e.g. after International congress) & including preparation of training material ' },
+    { value: "MedicalMonitoring ",   label : 'Medical Monitoring ', description:  'Medical Monitoring Time spent for medical monitoring visits & activities, broken down to time spent per each '},
     { value: "ProtocolWriting"  ,   label : 'Protocol Writing', description: 'Protocol Writing The time in hours spent to write a protocol for local clincal trial, including concept development, literature review, defining end points, research methodology, sample size determination, and statistical analysis plan. Local & global review & approval times are excluded ' },
-    { value: 'maps' ,               label :  'maps', description: 'MAPS Time spent in providing the scientific input to market research and patient support programs including all activities related to it '},
+    { value: 'MAPS' ,               label :  'MAPS', description: 'MAPS Time spent in providing the scientific input to market research and patient support programs including all activities related to it '},
     { value: 'AdvisoryBoards' ,     label :  'Advisory Boards', description:'Advisory Boards Time spent to prepare and execute an advisory board, including material preparation, agenda formulation and engaging advisors identifying the objectives and setting the goals of AB ' },
-    { value: 'AdminWork' ,          label :  'AdminWork', description: 'Admin Work Time spent in administrative work, PR, PO creation, drafting invitations, drafting contracts, archiving & documentation, travel expenses, IME,RIME & Congress logistics, vendor selections '},
-    { value: 'AnualMedicalPlanning',label :  'Anual Medical Planning', description: 'Annual Medical Planning Time spent for AMP preparations, and any other related activities like tactical sheets, and budget including discussing the tactical activities with HCPs but excluding regular insights from the field (which is covered by field activities) '},
+    { value: 'AdminWork' ,          label :  'Admin Work', description: 'Admin Work Time spent in administrative work, PR, PO creation, drafting invitations, drafting contracts, archiving & documentation, travel expenses, IME,RIME & Congress logistics, vendor selections '},
+    { value: 'AnnualMedicalPlan',label :  'Annual Medical Plan', description: 'Annual Medical Planning Time spent for AMP preparations, and any other related activities like tactical sheets, and budget including discussing the tactical activities with HCPs but excluding regular insights from the field (which is covered by field activities) '},
   ];
 
-
-
   const CalculateResult = () =>{
-      setFte((parseInt(numOfAct)*parseInt(hours))/parseInt(currFte));
+      setFte(Math.round((parseInt(numOfAct)*parseInt(hours))/parseInt(currFte) * 100) / 100);
       setTotalHours(parseInt(numOfAct)*parseInt(hours))
   }
 
@@ -47,6 +68,33 @@ function FteCalculator(props) {
       workload: hours,
       num: numOfAct,
       fte: fte,}));
+
+
+    let categ = [1,2,3,4]
+    let d = [1,2,3,4]
+    categ = activityCounter.filter((item) => item !== undefined).map((item)=> item.name)
+    d = activityCounter.filter((item) => item !== undefined).map((item)=> item.fte)
+    setSt({
+      options: {
+        plotOptions: {
+          bar: {
+              horizontal: true,
+          }
+        },
+        chart: {
+        id: "basic-bar"
+        },
+        xaxis: {
+        categories: categ
+        }
+      },
+      series: [
+        {
+        name: "series-1",
+        data:  d 
+        }
+      ]
+      })
   }
   const handleHours = (input) =>{
     changeHours(input.target.value)
@@ -65,6 +113,11 @@ function FteCalculator(props) {
     setOption(e.target.value);
   }
 
+  
+
+
+
+
   return (
     <div className="intro">
       <div className='mainBox'>
@@ -79,44 +132,44 @@ function FteCalculator(props) {
           </div>
           
           <div className='center'>
-            <div className="header">
+            <div className="headerCalc">
             <img src={require('./componenets/assets/logo.png')} alt='logo' height='70%'/>
             </div>
             <div className='up' style={up}>
+              <div className='leftCalc'>
+   
+
               <div className='acvityBox' style={activityBox}>
-                  { option!=='' &&
+              { option!=='' &&
 
-                        <div className='mainDiv'>
-                          {items.filter((item) => item.value === option).map( (item) => <div className="description"><p >{item.description}</p></div>)} 
-                          <div className='calcDiv'> 
-                            <div> 
-                              <p>This individual activity takes  <input type="text" onChange={handleHours} /> hours </p> 
-                              <p>I have <input type="text" onChange={handleNumOfAct} /> activities this year </p> </div>
-                              <div className='buttonDiv'>
-                                <button onClick={CalculateResult}>CALCULATE</button>
-                                <button onClick={saveResults}>SAVE</button>
-                              </div>
-                          </div>
-                          <div className='resDiv'> 
-                                  <p>This activity takes : {totalHours} hours </p>
-                                  <br></br>
-                                  <p>This activity takes : {fte} of FTE</p>
-                          </div>
-                        </div> 
-                    }
-
-  
+<div className='mainDiv'>
+  {items.filter((item) => item.value === option).map( (item) => <div className="description"><p >{item.description}</p></div>)} 
+</div>}
+<div className='calcDiv'> 
+    <div> 
+      <p>This individual activity takes  <input type="text" onChange={handleHours} /> hours </p> 
+      <p>I have <input type="text" onChange={handleNumOfAct} /> activities this year </p> </div>
+      <div className='buttonDiv'>
+        <button onClick={CalculateResult}>CALCULATE</button>
+        <button onClick={saveResults}>SAVE</button>
+      </div>
+  </div>
+  <div className='resDiv'> 
+          <p>This activity takes : {totalHours} hours </p>
+          <br></br>
+          <p>This activity takes : {fte} of FTE</p>
+  </div>
               </div>
               <table>
                 <tr>
                   <td style={tHead}>
-                      ACTIITY  
+                    Activity  
                   </td >
                   <td style={tHead}>
-                      TOTALWORKLOAD
+                  Total Workload
                   </td>
                   <td style={tHead}>
-                    NUMBER OF ACTIVITES
+                    Number of activities
                   </td>
                   <td style={tHead}>
                       FTE
@@ -124,6 +177,15 @@ function FteCalculator(props) {
                 </tr>
                 {activityCounter.filter((item) => item !== undefined).map((item)=> <tr><td>{item.name}</td><td>{item.workload}</td><td>{item.num}</td><td>{item.fte}</td></tr>)}
               </table>        
+              </div>  
+              <div className='rightCalc'>
+              <Chart dataa={st}></Chart>
+     
+         
+
+
+                </div>
+              </div>    
             </div>
             <div className='down' style={down}>
 
@@ -134,10 +196,11 @@ function FteCalculator(props) {
             </div>
         </div>
         </div>
+    
 
         </div>
         </div>
-    </div>
+
     )
 }
 
@@ -169,6 +232,12 @@ let activityBox = {
   paddingLeft: '1vw',
 }
 
+let activityBox1 = {
+  width:'30vw',
+  height:'300px',
+  paddingLeft: '1vw',
+}
+
 let down = {
   display: 'flex',
   justifyContent: 'flex-end',
@@ -184,7 +253,7 @@ let up = {
   width:'100%',
   height: 'auto',
   display:'flex',
-  flexDirection: 'column',
+  flexDirection: 'row',
   justifyContent: 'space-between',
 
 }
