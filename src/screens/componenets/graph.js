@@ -1,11 +1,12 @@
-
-import React from 'react';
+/* App.js */
+var React = require('react');
 var Component = React.Component;
 var CanvasJSReact = require('./canvasjs.react');
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+export default function Graph(props){
 
-const Graph = (props) =>{
+	    let dp =  props.activities.filter((item) => item !== undefined ).map((item)=>  {let obj = {y:item.fte,	label: item.name }; return obj})
 		const options = {
 			animationEnabled: true,
 			theme: "light2",
@@ -13,18 +14,30 @@ const Graph = (props) =>{
 				text: "Most Popular Social Networking Sites"
 			},
 			axisX: {
-				title: "Social Network",
+				title: "FTE",
 				reversed: true,
 			},
 			axisY: {
-				title: "Monthly Active Users",
-				labelFormatter: this.addSymbols
+				title: "ACTIVITIES",
+				labelFormatter: addSymbols
 			},
+
 			data: [{
 				type: "bar",
-				dataPoints: [ props.activities.map((item) => y:  parseInt(item.activityFte), label: item.label)]
+				dataPoints: dp
 			}]
+		}
+		console.log(options.data.dataPoints);
 
+		const addSymbols= (e) => {
+			var suffixes = ["", "K", "M", "B"];
+			var order = Math.max(Math.floor(Math.log(e.value) / Math.log(1000)), 0);
+			if(order > suffixes.length - 1){
+				order = suffixes.length - 1;
+			}
+			var suffix = suffixes[order];
+			return CanvasJS.formatNumber(e.value / Math.pow(1000, order)) + suffix;
+		}
 		return (
 		<div>
 			<CanvasJSChart options = {options}
@@ -33,14 +46,5 @@ const Graph = (props) =>{
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 		</div>
 		);
-	}
-	addSymbols(e){
-		var suffixes = ["", "K", "M", "B"];
-		var order = Math.max(Math.floor(Math.log(e.value) / Math.log(1000)), 0);
-		if(order > suffixes.length - 1)
-			order = suffixes.length - 1;
-		var suffix = suffixes[order];
-		return CanvasJS.formatNumber(e.value / Math.pow(1000, order)) + suffix;
-	}
 }
-module.exports = App;        
+     

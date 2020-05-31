@@ -3,7 +3,7 @@ import React from 'react';
 
 var buttonStyle = {
     margin: '10px 10px 10px 0',
-    backgroundColor: '#203165',
+    backgroundColor: '#0073bc',
     padding: '4px 4px 4px 4',
     width: '180px',
     height: '45px',

@@ -17,7 +17,7 @@ var cardWStyle = {
 };
 
 var CardStyle = {
-  backgroundColor: '#203165',
+  backgroundColor: '#32cdfb',
   border: 'white 2px solid',
   color: 'white',
   fontSize: '24px',
@@ -31,7 +31,7 @@ var CardStyle = {
 };
 
 var LinkStyle = {
-    backgroundColor: '#203165',
+    backgroundColor: '#32cdfb',
     border: 'white 2px solid',
     color: 'white',
     fontSize: '24px',

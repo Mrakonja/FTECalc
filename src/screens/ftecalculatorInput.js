@@ -13,7 +13,7 @@ var sectionStyle = {
     width: '100%',
     borderTop: '5px white solid',
     fontFamily: 'sans-serif',
-    color: 'white',
+    color: 'black',
   };
 
   var BotsectionStyle = {
@@ -21,7 +21,7 @@ var sectionStyle = {
     width: '100%',
     height: '15%',
     justifyContent: 'flex-end',
-    backgroundColor: '#0073bd',
+    backgroundColor: 'white',
   };
 
 

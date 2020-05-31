@@ -31,8 +31,6 @@ const activityCounter = (state=[], action) => {
     switch(action.type){
         case 'ADD_ACTIVITY':
             return [...state, action.activity];
-        case 'REMOVE_ACTIVITY':
-            return state.pop(action.activity);
         default:
             return state
     }

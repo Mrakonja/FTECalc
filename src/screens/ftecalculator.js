@@ -1,47 +1,13 @@
 import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import ButtonComp from './componenets/button';
-import Calculation from './componenets/calculation';
+import Graph from './componenets/graph';
 import HeaderComp from './componenets/headercomp';
 import { AddActivity } from '../redux/actions';
 import './css/fteCalc.css';
 import './componenets/css/calculations.css';
+import { faVihara } from '@fortawesome/free-solid-svg-icons';
 
-// const customStyles = {
-//   option: (provided, state) => ({
-//     ...provided,
-//     textAlign: 'center',
-//     textDecoration: 'none',
-//     width: '100%',
-//     color: state.isSelected ? 'white' : 'black',
-//   }),
-//   container: (provided, state) => ({
-//     ...provided,
-//     width: '25%',
-
-//   }),
-//   menu: (provided, state) => ({
-//     ...provided,
-//     width: '100%',
-
-//   }),
-//   menuList: (provided, state) => ({
-//     ...provided,
-//     width: '100%',
-
-//   }),
-//   valueContainer: (provided, state) => ({
-//     ...provided,
-//     width: '25%',
-
-//   }),
-//   singleValue: (provided, state) => {
-//     const opacity = state.isDisabled ? 0.5 : 1;
-//     const transition = 'opacity 300ms';
-
-//     return { ...provided, opacity, transition };
-//   }
-// }
 
 function FteCalculator(props) {
   const dispatch = useDispatch()
@@ -155,7 +121,7 @@ function FteCalculator(props) {
 
         <div className='right'>
             <div className='up'>
-            
+             {/* <Graph activities={activityCounter}/> */}
             </div>
             <div className='down'>
               <ButtonComp nextp='/' label='SAVE' />
@@ -191,14 +157,15 @@ alignItems: 'stretch'
 let activityBox = {
 width:'100%',
 height:'300px',
-backgroundColor:'#132c64',
+backgroundColor:'#596063',
 color: 'white',
+padding: '0.1vw',
 }
 
 let down = {
 width:'100%',
 height: 'auto',
-backgroundColor:'lightgray',
+backgroundColor:'#596063',
 margin: '5px'
 }
 

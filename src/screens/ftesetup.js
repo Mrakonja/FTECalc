@@ -43,14 +43,11 @@ function FteSetup(props) {
         <HeaderComp title='FTE SETUP' />
         <div className='section'>
           <div className='up' style={upStyle}>
-            <div className='left' style={leftStyle}>
               <div>
-              <p>Help US DETERMINE YOUR CURRENT FTE</p>
+              <p>HELP US DETERMINE YOUR CURRENT FTE</p>
               <p>BY ADDING YOUR ANNUAL LEAVE AND PUBLIC HOLIDAYS</p>
-            <h1> {props.store} </h1>
               </div>
-            </div>
-            <div className='right' style={rightStyle}>
+     
 
               <table>
 
@@ -74,17 +71,18 @@ function FteSetup(props) {
                   <td>{currFte}</td>
                 </tr>
               </table>
-            </div>
+              <div className='buttons'>
+              <button style={buttonStyle} onClick={resetFTE}>RESET </button>
+                    <button style={buttonStyle} onClick={getFte}>SUBMIT </button>
+              </div>
+          
           </div>
           <div className='Down' style={downStyle}>
-          <button style={buttonStyle} onClick={resetFTE}>RESET </button>
-            <button style={buttonStyle} onClick={getFte}>SUBMIT </button>
+  
             <ButtonComp nextp='/' label='BACK' />
             <ButtonComp nextp='/ftechoose' label='CONTINUE' />
           </div>
         </div>
-        <FooterrComp />
-
       </div>
     </div>
   )
@@ -95,13 +93,15 @@ function FteSetup(props) {
 var upStyle = {
   display: 'flex',
   height: '85%',
-  width: '100%'
+  width: '100%',
+  alignItems: 'center',
+  justifyContent: 'center',
 };
 
 var downStyle = {
   display: 'flex',
+  
   height: '15%',
-  justifyContent: 'flex-end',
   width: '100%'
 };
 
@@ -128,7 +128,7 @@ var rightStyle = {
 
   var buttonStyle = {
     margin: '10px 10px 10px 0',
-    backgroundColor: '#203165',
+    backgroundColor: '#32cdfb',
     padding: '4px 4px 4px 4',
     width: '180px',
     height: '45px',
